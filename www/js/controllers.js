@@ -9,6 +9,8 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+  $scope.versesList = ['5' , '10' , '15' , '20'];
+
   $scope.settingsList = [
       { text: "Show Meaning", checked: true}
     ];
