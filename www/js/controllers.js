@@ -9,6 +9,9 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+  $scope.settingsList = [
+      { text: "Show Meaning", checked: true}
+    ];
   // Form data for the login modal
   $scope.loginData = {};
 

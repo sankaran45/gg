@@ -3,22 +3,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
-    <title>Toggles</title>
+    <title>Settings</title>
 
     <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
     <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
   </head>
 
-  <body ng-controller="MainCtrl">
+  <body ng-controller="AppCtrl  ">
 
     <ion-header-bar class="bar-positive">
       <h1 class="title">Toggles</h1>
     </ion-header-bar>
 
     <ion-content>
-
       <div class="list">
-
         <div class="item item-divider">
           Settings
         </div>
@@ -28,6 +26,18 @@
                     ng-checked="item.checked">
           {{ item.text }}
         </ion-toggle>
+
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Verses per page
+          </div>
+          <select>
+            <option>5</option>
+            <option selected>10</option>
+            <option>15</option>
+            <option>20</option>
+          </select>
+        </label>
 
         <div class="item">
           <pre ng-bind="settingsList | json"></pre>
