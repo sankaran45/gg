@@ -9,10 +9,10 @@
     <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
   </head>
 
-  <body ng-controller="AppCtrl  ">
-
+  <body ng-controller="AppCtrl">
+    <ion-view view-title="Settings">
     <ion-header-bar class="bar-positive">
-      <h1 class="title">Toggles</h1>
+      <h1 class="title">Settings</h1>
     </ion-header-bar>
 
     <ion-content>
@@ -31,13 +31,15 @@
           <div class="input-label">
             Verses per page
           </div>
-          <select ng-model="selectedItem">
-            <option ng-repeat = "item in versesList" value="{{item}}">{{item}}</option>
+          <select ng-model="selectedItem" ng-options="item.value for item in versesList">
           </select>
         </label>
 
         <div class="item">
           <pre ng-bind="settingsList | json"></pre>
+        </div>
+        <div class="item">
+          <pre ng-bind="selectedItem | json"></pre>
         </div>
 
         <div class="item item-divider">
@@ -67,6 +69,6 @@
       </div>
 
     </ion-content>
-
+  </ion-view>
   </body>
 </html>

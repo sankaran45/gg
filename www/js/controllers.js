@@ -9,7 +9,8 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $scope.versesList = ['5' , '10' , '15' , '20'];
+  $scope.versesList = [{id:"1" , value:'5'} , {id:"2" , value:'10'} , {id:"3" , value:'15'} , {id:"4" , value:'20'}];
+  $scope.selectedItem = $scope.versesList[1];
 
   $scope.settingsList = [
       { text: "Show Meaning", checked: true}
