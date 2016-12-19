@@ -6,6 +6,32 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers'])
 
+.factory('$localstorage', ['$window', function($window) {
+    	return {
+    		set: function(key, value) {
+    			$window.localStorage[key] = value;
+    		},
+    		get: function(key, defaultValue) {
+    			return $window.localStorage[key] || false;
+    		},
+    		setObject: function(key, value) {
+    			$window.localStorage[key] = JSON.stringify(value);
+    		},
+    		getObject: function(key) {
+    			if($window.localStorage[key] != undefined)
+    				return JSON.parse($window.localStorage[key] || false );
+
+    			return false;
+    		},
+    		remove: function(key){
+    			$window.localStorage.removeItem(key);
+    		},
+    		clear: function(){
+    			$window.localStorage.clear();
+    		}
+    	}
+    }])
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
