@@ -1,22 +1,31 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
+  $scope.versesList = [
+    {id:"1" , value:'5'},
+    {id:"2" , value:'10'},
+    {id:"3" , value:'15'},
+    {id:"4" , value:'20'}
+  ];
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
-  $scope.versesList = [{id:"1" , value:'5'} , {id:"2" , value:'10'} , {id:"3" , value:'15'} , {id:"4" , value:'20'}];
   $scope.selectedItem = $scope.versesList[1];
+
+  $http.get('/www/json/verse.json').then(function(data) {
+    $scope.selectedItem = data.value;
+  })
 
   $scope.settingsList = [
       { text: "Show Meaning", checked: true}
     ];
   // Form data for the login modal
   $scope.loginData = {};
+
+  $scope.save = function() {
+    $http.post('/www/json/verse.json', $scope.selectedItem).then(function(data) {
+      $scope.msg = 'Data saved';
+    });
+    console.log('Data sent: '+ JSON.stringify($scope.selectedItem));
+  };
 
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
