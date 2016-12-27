@@ -42,11 +42,14 @@ angular.module('starter.controllers', ['LocalStorageModule'])
 })
 
 .controller('SettingsCtrl' , function($scope, localStorageService) {
-	$scope.hoursPerWeek = localStorageService.get("hoursPerWeek") || 37;
-	$scope.submitClicked = function(){
-		localStorageService.set('hoursPerWeek',$scope.hoursPerWeek);
-        console.log("Set Value of hoursPerWeek as : " + $scope.hoursPerWeek);
-	}
+    $scope.config = {
+        numVerses: localStorage.getItem('numVerses' , 23)
+    };
+
+    $scope.save = function() {
+     console.log($scope.config.numVerses);
+     localStorage.setItem('numVerses', $scope.config.numVerses);
+   };
 })
 
 .controller('PlaylistsCtrl', function($scope) {
