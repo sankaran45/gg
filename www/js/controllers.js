@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['LocalStorageModule'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -41,10 +41,10 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('SettingsCtrl' , function($scope) {
-	$scope.hoursPerWeek = '';
+.controller('SettingsCtrl' , function($scope, localStorageService) {
+	$scope.hoursPerWeek = localStorageService.get("hoursPerWeek") || 37;
 	$scope.submitClicked = function(){
-		localStorage.set('hoursPerWeek',$scope.hoursPerWeek);
+		localStorageService.setItem('hoursPerWeek',$scope.hoursPerWeek);
 	}
 })
 
