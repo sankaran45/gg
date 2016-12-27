@@ -44,7 +44,8 @@ angular.module('starter.controllers', ['LocalStorageModule'])
 .controller('SettingsCtrl' , function($scope, localStorageService) {
 	$scope.hoursPerWeek = localStorageService.get("hoursPerWeek") || 37;
 	$scope.submitClicked = function(){
-		localStorageService.setItem('hoursPerWeek',$scope.hoursPerWeek);
+		localStorageService.set('hoursPerWeek',$scope.hoursPerWeek);
+        console.log("Set Value of hoursPerWeek as : " + $scope.hoursPerWeek);
 	}
 })
 

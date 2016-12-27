@@ -3,7 +3,7 @@
         <ul class="list">
             <label class="item item-input item-label">
 			<span class="input-label">Hours per week</span>
-			<input type="text" ng-model="hoursPerWeek" value="37.5">
+			<input type="text" ng-model="hoursPerWeek" value="42">
 			</label>
             <label class="item item-input item-label">
             <span class="input-label">Days per week</span>
@@ -69,8 +69,8 @@
                     </div>
                 </label>
             </li>
-            <button onclick="submitClicked">
-                Settings
+            <button class="button button-balanced" ng-click="submitClicked()">
+               Save
             </button>
         </ul>
     </ion-content>
