@@ -42,13 +42,29 @@ angular.module('starter.controllers', ['LocalStorageModule'])
 })
 
 .controller('SettingsCtrl' , function($scope, localStorageService) {
+    $scope.verseOptions = [5 , 10, 15, 20];
+    $scope.verses = JSON.stringify($scope.verseOptions);
+    console.log($scope.verses);
+    console.log($scope.verses[3]);
+    console.log(JSON.parse($scope.verses));
+    $scope.dd = JSON.parse($scope.verses);
+    var d = $scope.verseOptions[1];
+    console.log(d);
+
     $scope.config = {
-        numVerses: localStorage.getItem('numVerses' , 23)
+        numVerses: localStorage.getItem('numVerses' , 23),
+        selectedVerse:$scope.dd[2]
     };
+
+    window.localStorage['myData'] = JSON.stringify($scope.config);
+
+    console.log($scope.config.selectedVerse);
 
     $scope.save = function() {
      console.log($scope.config.numVerses);
      localStorage.setItem('numVerses', $scope.config.numVerses);
+     localStorage.setItem('verseOption' , $scope.config.selectedVerse);
+     console.log($scope.config.selectedVerse);
    };
 })
 

@@ -2,25 +2,18 @@
     <ion-content class="has-header">
         <ul class="list">
             <label class="item item-input item-label">
-			<span class="input-label">Hours per week</span>
+            <span class="input-label">Verse Options</span>
+            </label>
+            <label class="item item-input item-label">
+			<span class="input-label">Number Of Verses</span>
 			<input type="text" ng-model="config.numVerses">
 			</label>
-            <label class="item item-input item-label">
-            <span class="input-label">Days per week</span>
-            <input type="text" value="5">
-            </label>
-            <label class="item item-input item-label">
-            <span class="input-label">Pension Contribution</span>
-            <input type="text">
-            </label>
             <label class="item item-input item-select">
                 <div class="input-label">
-                    Age
+                    Verses
                 </div>
-                <select>
-                    <option selected>Under 65</option>
-                    <option>65-74</option>
-                    <option>75+</option>
+                <select ng-model='config.selectedVerse'
+                        ng-options='verse for (idx, verse) in dd track by idx'>
                 </select>
             </label>
             <label class="item item-input item-select">
